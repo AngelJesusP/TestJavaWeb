@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Test Prueba Primefaces EJB JSF</title>
+        <style>
+            body {
+                background: rgb(0,0,0);
+                background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(10,65,66,1) 29%, rgba(30,148,142,1) 46%, rgba(6,6,11,1) 100%);
+            }
+        </style>
+
+    </h:head>
+    <h:body>
+        <p:menubar>
+            <p:submenu label="File" icon="pi pi-file">
+                <p:submenu label="New" icon="pi pi-briefcase">
+                    <p:menuitem value="Project" url="#" />
+                    <p:menuitem value="Other" url="#" />
+                </p:submenu>
+                <p:menuitem value="Open" url="#" />
+                <p:separator />
+                <p:menuitem value="Quit" url="#" />
+            </p:submenu>
+
+            <p:submenu label="Edit" icon="pi pi-pencil">
+                <p:menuitem value="Undo" url="#" icon="pi pi-angle-double-left" />
+                <p:menuitem value="Redo" url="#" icon="pi pi-angle-double-right" />
+            </p:submenu>
+
+            <p:submenu label="Help" icon="pi pi-question">
+                <p:menuitem value="Contents" url="#" />
+                <p:submenu label="Search" icon="pi pi-search">
+                    <p:submenu label="Text">
+                        <p:menuitem value="Workspace" url="#" />
+                    </p:submenu>
+                    <p:menuitem value="File" url="#" />
+                </p:submenu>
+            </p:submenu>
+        </p:menubar>
+
+
+        <div style="margin-top: 20px">
+            <p:tabView id="tablaVista">
+                <p:tab title="Registro de clientes" id="ventaCliente">
+                    <h:form id="formBuscarCliente" prependId="false">
+                        <p:inputText id="buscarCliente" placeholder="Digite el nm_cliente" value="#{clienteBean.nm_clienteBuscar}" autocomplete="off"/>
+                        <p:commandButton value="Buscar" action="#{clienteBean.setBuscarCliente()}" 
+                                         update=":tablaVista:panelFormCliente" />
+                    </h:form>
+                    <hr />
+                    <h:form id="formularioCliente" prependId="false">
+                        <p:panelGrid columns="8" id="panelFormCliente" style="width: 100%">
+                            <p:outputLabel for="nm_cliente" value="* nm_cliente: "/>
+                            <p:inputText placeholder="Digite el nm_cliente" value="#{clienteBean.cliente.nmCliente}" 
+                                         autocomplete="off" id="nm_cliente" required="true" requiredMessage="Ingrese el nm_cliente" />
+
+                            <p:outputLabel value=" cd_cliente: "/>
+                            <p:inputText placeholder="Digite el cd_cliente" value="#{clienteBean.cliente.cdCliente}" 
+                                         autocomplete="off" />
+
+                            <p:outputLabel for="dn_nombre" value="* dn_nombre: "/>
+                            <p:inputText placeholder="Digite el dn_nombre" value="#{clienteBean.cliente.dnNombre}" 
+                                         autocomplete="off" id="dn_nombre" required="true" requiredMessage="Ingrese el dn_nombre" />
+
+                            <p:outputLabel value=" dn_direccion: "/>
+                            <p:inputText placeholder="Digite el dn_direccion" value="#{clienteBean.cliente.dnDireccion}" 
+                                         autocomplete="off" />
+
+                            <p:outputLabel for="dn_email" value="* dn_email: "/>
+                            <p:inputText placeholder="USUARIO@gmail.com" value="#{clienteBean.cliente.dnEmail}" 
+                                         autocomplete="off" id="dn_email" required="true" requiredMessage="Ingrese el dn_email"/>
+
+                            <p:outputLabel for="fecha_baja" value="*Fecha baja: " />
+                            <p:inputMask placeholder="año-mes-dia" mask="9999-99-99" value="#{clienteBean.myTimeStampBaja}" 
+                                         autocomplete="off" id="fecha_baja" required="true" requiredMessage="Ingresa la fecha de baja"/>
+
+                            <p:outputLabel for="cd_usuario" value="* cd_usuario "/>
+                            <p:inputText placeholder="Digite el cd_usuario" value="#{clienteBean.cliente.cdUsuario}" 
+                                         autocomplete="off" id="cd_usuario" required="true" requiredMessage="Ingrese el cd_usuario" />
+
+                            <p:outputLabel for="@next" value="Estado:" />
+                            <p:selectOneMenu id="console" value="#{clienteBean.cliente.SActivo}">
+                                <f:selectItem itemLabel="Selecccion su opcion" itemValue="" />
+                                <f:selectItem itemLabel="Activo" itemValue="Y" />
+                                <f:selectItem itemLabel="NO Activo" itemValue="N" />
+                            </p:selectOneMenu>
+
+                            <p:outputLabel value=" cd_telefono "/>
+                            <p:inputMask placeholder="(+57) 999-9999999" mask="(+57) 999-9999999" value="#{clienteBean.cliente.cdTelefono}" 
+                                         autocomplete="off" />
+
+                            <p:outputLabel value=" ds_contacto "/>
+                            <p:inputMask placeholder="9999999999" mask="9999999999" value="#{clienteBean.cliente.dsContacto}" 
+                                         autocomplete="off" />
+
+                            <p:outputLabel value=" ds_logo "/>
+                            <p:inputText placeholder="Digite el ds_logo" value="#{clienteBean.cliente.dsLogo}" 
+                                         autocomplete="off" />
+                        </p:panelGrid>
+                        <hr />
+                        <p:commandButton value="Registrar cliente" action="#{clienteBean.setRegistrar_Actualizar_Cliente(true)}" update=":tablaCliente" />
+                        <p:commandButton value="Actualizar cliente" action="#{clienteBean.setRegistrar_Actualizar_Cliente(false)}" update=":tablaCliente" />
+                        <p:commandButton value="Eliminar cliente" action="#{clienteBean.setEliminarCliente()}" update=":tablaCliente"/>
+                    </h:form>
+                    <hr />
+                </p:tab>
+                <p:tab title="Cargar multiples archivos">
+                    <h:form id="formularioFile" enctype="multipart/form-data" prependId="false">  
+                        <p:fileUpload  fileUploadListener="#{uploadFileBean.upload}" mode="advanced" dragDropSupport="false"
+                                       update="messages" sizeLimit="10000000" fileLimit="5" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" /> 
+                    </h:form>
+                </p:tab>
+            </p:tabView>
+        </div>
+
+        <p:dataTable id="tablaCliente" value="#{clienteBean.listaClientes}" var="item" paginator="true" rows="5">
+            <f:facet name="header">
+                <h:outputText value="Lista de clientes"/>
+            </f:facet>
+            <p:column width="80">
+                <f:facet name="header">
+                    <h:outputText value="NmCliente"/>
+                </f:facet>
+                <h:outputText value="#{item.nmCliente}"/>
+            </p:column>
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="CdCliente"/>
+                </f:facet>
+                <h:outputText value="#{item.cdCliente}"/>
+            </p:column>
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="DnNombre"/>
+                </f:facet>
+                <h:outputText value="#{item.dnNombre}"/>
+            </p:column>
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="DnDireccion"/>
+                </f:facet>
+                <h:outputText value="#{item.dnDireccion}"/>
+            </p:column>
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="DnEmail"/>
+                </f:facet>
+                <h:outputText value="#{item.dnEmail}"/>
+            </p:column>
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="FechaRegistro"/>
+                </f:facet>
+                <h:outputText value="#{item.fechaRegistro}">
+                    <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                </h:outputText>
+            </p:column>
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="FechaBaja"/>
+                </f:facet>
+                <h:outputText value="#{item.fechaBaja}">
+                    <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                </h:outputText>
+            </p:column>
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="CdUsuario"/>
+                </f:facet>
+                <h:outputText value="#{item.cdUsuario}"/>
+            </p:column>
+            <p:column width="50">
+                <f:facet name="header">
+                    <h:outputText value="SActivo"/>
+                </f:facet>
+                <h:outputText value="#{item.SActivo}"/>
+            </p:column>
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="CdTelefono"/>
+                </f:facet>
+                <h:outputText value="#{item.cdTelefono}"/>
+            </p:column>
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="DsContacto"/>
+                </f:facet>
+                <h:outputText value="#{item.dsContacto}"/>
+            </p:column>
+            <p:column width="50">
+                <f:facet name="header">
+                    <h:outputText value="DsLogo"/>
+                </f:facet>
+                <h:outputText value="#{item.dsLogo}"/>
+            </p:column>
+        </p:dataTable>
+    </h:body>
+</html>
+

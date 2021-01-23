@@ -1,0 +1,4 @@
+app/webSer/Entity/ThomClienteEntity_.class
+app/webSer/ServicioWeb/servicios.class
+app/webSer/DAOImpl/ClienteImpl.class
+app/webSer/Entity/ThomClienteEntity.class

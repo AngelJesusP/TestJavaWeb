@@ -1,0 +1,9 @@
+/home/angel/NetBeansProjects/test_html_jquery/src/main/java/app/com/InterfacesDao/ManteniemientoTable.java
+/home/angel/NetBeansProjects/test_html_jquery/src/main/java/app/com/clienteControllerJPA/ThomClienteEntityJpaController.java
+/home/angel/NetBeansProjects/test_html_jquery/src/main/java/app/com/clienteControllerJPA/exceptions/NonexistentEntityException.java
+/home/angel/NetBeansProjects/test_html_jquery/src/main/java/app/com/clienteControllerJPA/exceptions/PreexistingEntityException.java
+/home/angel/NetBeansProjects/test_html_jquery/src/main/java/app/com/Entity/ThomClienteEntity.java
+/home/angel/NetBeansProjects/test_html_jquery/src/main/java/app/com/DAO/ClienteImp.java
+/home/angel/NetBeansProjects/test_html_jquery/src/main/java/app/com/clienteControllerJPA/exceptions/RollbackFailureException.java
+/home/angel/NetBeansProjects/test_html_jquery/src/main/java/app/com/clienteControllerJPA/exceptions/IllegalOrphanException.java
+/home/angel/NetBeansProjects/test_html_jquery/src/main/java/app/com/Controller/clienteController.java

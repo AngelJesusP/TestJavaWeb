@@ -1,0 +1,5 @@
+app/web/Entity/ThomClienteEntity_.class
+app/web/Entity/ThomClienteEntity.class
+app/web/DAOImpl/ClienteDAOImpl.class
+app/web/DAO/ClienteDAO.class
+app/web/webService/webService.class

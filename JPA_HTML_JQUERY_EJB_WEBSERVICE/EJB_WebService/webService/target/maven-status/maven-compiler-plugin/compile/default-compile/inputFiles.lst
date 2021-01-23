@@ -1,0 +1,9 @@
+/home/angel/NetBeansProjects/webService/src/main/java/app/webSer/ControllerJPA/exceptions/RollbackFailureException.java
+/home/angel/NetBeansProjects/webService/src/main/java/app/webSer/ControllerJPA/exceptions/NonexistentEntityException.java
+/home/angel/NetBeansProjects/webService/src/main/java/app/webSer/Entity/ThomClienteEntity.java
+/home/angel/NetBeansProjects/webService/src/main/java/app/webSer/ControllerJPA/ThomClienteEntityJpaController.java
+/home/angel/NetBeansProjects/webService/src/main/java/app/webSer/ControllerJPA/exceptions/PreexistingEntityException.java
+/home/angel/NetBeansProjects/webService/src/main/java/app/webSer/DAO/ClienteDAO.java
+/home/angel/NetBeansProjects/webService/src/main/java/app/webSer/ControllerJPA/exceptions/IllegalOrphanException.java
+/home/angel/NetBeansProjects/webService/src/main/java/app/webSer/DAOImpl/ClienteImpl.java
+/home/angel/NetBeansProjects/webService/src/main/java/app/webSer/ServicioWeb/servicios.java
